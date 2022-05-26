@@ -1,2 +1,3 @@
-# a-simple-search
-A search tool using Python and ElasticSearch
+# A search web app using Python and ElasticSearch
+
+

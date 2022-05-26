@@ -1,0 +1,97 @@
+<html>
+  <head>
+     <title>Product Search Demo</title>
+     <link rel="stylesheet" media="screen" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
+  </head>
+  <body>
+
+    <div class="container"><br>
+      <center>
+        <h2>Search for items</h2>
+      </center>
+    </div>
+
+    <div class=container"><br>
+    <div class="row align-items-center justify-content-center">
+    <div class="col-md-4">
+      <form  action="" method="post" role="form">
+        {{ form.csrf }}
+        <div class="form-group">
+
+          <label for="name">Input item name:</label>
+          <input type="text" class="form-control" id="name" name="name" placeholder="Which product are you looking for?">
+           <br> 
+          
+         
+
+	</div>
+        <br>													   
+
+        <center>
+          <button type="submit" class="btn btn-success">Search</button>
+        </center>
+      </form>
+
+      <br>
+
+      {% with messages = get_flashed_messages(category_filter=["Product Name"]) %}
+        {% if messages %}
+          {% for message in messages %}
+        <div class="alert alert-info">
+          <strong> Top 20 results for : </strong> {{ message }} 
+        </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <table>
+        <!-- <tr>
+          {% for header in headings %}
+          <th> {{ header }} <th>
+          {% endfor %}
+        </tr> -->
+        <tr>
+          <th> Item name </th>
+          <th> Code/ID </th>
+          <th> Price </th>
+          <th> Quantity </th>
+          <th> Date </th>
+          <th> Score </th>
+        </tr>
+        {% for row in data %}
+        <tr>
+          {% for cell in row %}
+          <td>
+            {{cell}}
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+
+
+    </div>
+    <br>
+    </div>
+    </div>
+  </body>
+</html>
