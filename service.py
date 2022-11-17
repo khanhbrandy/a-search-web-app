@@ -30,7 +30,7 @@ class SearchAPI():
         self.app.config['JSON_AS_ASCII'] = False
         self.app.config['JSON_SORT_KEYS'] = False
         self.app.debug = True
-        self.app.config['SECRET_KEY'] = 'kiotprosearchkiotviet2021'
+        self.app.config['SECRET_KEY'] = 'HIDDEN'
         @self.app.after_request
         def after_request(response):
             response.headers['Access-Control-Allow-Origin'] = "*"
